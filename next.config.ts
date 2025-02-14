@@ -1,10 +1,11 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import { NextConfig } from 'next';
+
+const nextConfig: NextConfig = {
   output: "export", // Required for static export
-  basePath: "/snehas-house", // Replace with your GitHub repo name
+  basePath: "/snehas-house", // Ensure this matches your GitHub repo name
   images: {
     unoptimized: true, // Required to avoid Next.js image optimization errors
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
