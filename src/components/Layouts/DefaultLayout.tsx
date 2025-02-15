@@ -1,14 +1,11 @@
 "use client";
-import React, { useState, ReactNode } from "react";
+import React, { useState } from "react";
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Headder";
 
-export default function DefaultLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export default function DefaultLayout({ children }: { children: React.ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
   return (
     <>
       {/* <!-- ===== Page Wrapper Start ===== --> */}
@@ -24,11 +21,7 @@ export default function DefaultLayout({
           {/* <!-- ===== Header End ===== --> */}
 
           {/* <!-- ===== Main Content Start ===== --> */}
-          <main>
-            <div className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
-              {children}
-            </div>
-          </main>
+          <main className="p-4 md:p-6 2xl:p-10">{children}</main>
           {/* <!-- ===== Main Content End ===== --> */}
         </div>
         {/* <!-- ===== Content Area End ===== --> */}

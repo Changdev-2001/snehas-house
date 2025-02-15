@@ -145,6 +145,15 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             </li>
             <li>
               <Link
+                href="/about"
+                className="flex items-center gap-3 p-3 rounded-md hover:bg-gray-700"
+              >
+                <FiPhone />
+                <span>About Us</span>
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/contact"
                 className="flex items-center gap-3 p-3 rounded-md hover:bg-gray-700"
               >
