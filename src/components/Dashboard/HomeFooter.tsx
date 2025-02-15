@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaInstagramSquare,FaWhatsappSquare } from "react-icons/fa";
+import { FaSquareFacebook } from "react-icons/fa6";
 
 const HomeFooter = () => {
   return (
@@ -23,22 +24,27 @@ const HomeFooter = () => {
             <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
             <ul>
               <li>
-                <Link href="/" className="text-sm hover:text-yellow-400">
+                <Link href="/" className="text-sm hover:text-pink-600">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/explore" className="text-sm hover:text-yellow-400">
+                <Link href="/" className="text-sm hover:text-pink-600">
+                  Gallary
+                </Link>
+              </li>
+              <li>
+                <Link href="/explore" className="text-sm hover:text-pink-600">
                   Explore Collection
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-sm hover:text-yellow-400">
+                <Link href="/about" className="text-sm hover:text-pink-600">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-sm hover:text-yellow-400">
+                <Link href="/contact" className="text-sm hover:text-pink-600">
                   Contact
                 </Link>
               </li>
@@ -66,24 +72,24 @@ const HomeFooter = () => {
             <div className="flex space-x-4">
               <Link
                 href="/"
-                className="text-yellow-400 hover:text-yellow-500"
+                className="text-pink-600 hover:text-pink-500"
                 target="_blank"
               >
-                <FaFacebook size={24} />
+                <FaSquareFacebook size={24} />
               </Link>
               <Link
                 href="https://www.instagram.com/sneha_rental_collection?igsh=cmgzazh0dXl0MWYw"
-                className="text-yellow-400 hover:text-yellow-500"
+                className="text-pink-600 hover:text-pink-500"
                 target="_blank"
               >
-                <FaInstagram size={24} />
+                <FaInstagramSquare size={24} />
               </Link>
               <Link
                 href="https://wa.me/9011421508"
-                className="text-yellow-400 hover:text-yellow-500"
+                className="text-pink-600 hover:text-pink-500"
                 target="_blank"
               >
-                <FaWhatsapp size={24} />
+                <FaWhatsappSquare size={24} />
               </Link>
             </div>
           </div>
