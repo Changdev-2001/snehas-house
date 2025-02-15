@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 const AboutUs = () => {
   return (
-    <div className="bg-dark text-dark w-full py-10">
+    <div className="bg-dark text-dark w-full py-6">
       <div className="max-w-sm lg:max-w-6xl md:max-w-2xl mx-auto px-6">
         {/* Header Section */}
         <motion.h1
@@ -22,10 +22,10 @@ const AboutUs = () => {
         {/* Image Section */}
         <div className="flex justify-center my-8">
           <Image
-            src="/about-banner.jpg"
+            src="aboutimg1.jpg"
             alt="Sneha's House"
             width={800}
-            height={400}
+            height={300}
             className="rounded-2xl shadow-lg max-w-full"
           />
         </div>

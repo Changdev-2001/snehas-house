@@ -16,7 +16,7 @@ const Home: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          Welcome to <span className="text-yellow-300">Sneha Rental House</span>
+          Welcome to <span className="text-pink-600">Sneha Rental House</span>
         </motion.h1>
 
         <motion.p 
@@ -34,7 +34,7 @@ const Home: React.FC = () => {
           transition={{ duration: 0.8, delay: 1 }}
         >
           <Link href="/explore">
-            <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold py-3 px-6 rounded-full text-lg shadow-lg transition-transform transform hover:scale-105">
+            <button className="bg-pink-600 hover:bg-pink-500 text-gray-900 font-bold py-3 px-6 rounded-full text-lg shadow-lg transition-transform transform hover:scale-105">
               Explore Collection
             </button>
           </Link>
