@@ -3,12 +3,15 @@ import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+const basePath = "/snehas-house"; // Must match basePath in next.config.js
+
 const gownImages = [
-  "/img1.jpg",
-  "/img2.jpg",
-  "/img3.jpg",
-  "/img4.jpg",
+  `${basePath}/img1.jpg`,
+  `${basePath}/img2.jpg`,
+  `${basePath}/img3.jpg`,
+  `${basePath}/img4.jpg`,
 ];
+
 
 const duplicatedImages = [...gownImages, ...gownImages]; // Duplicate for smooth infinite scroll
 
