@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import ClickOutside from "@/components/ClickOutside";
-import { FaImages, FaChevronDown } from "react-icons/fa";
+import { FaImages, FaChevronDown, FaInfoCircle } from "react-icons/fa";
 import { FiHome, FiPhone, FiShoppingBag } from "react-icons/fi";
 import { GiAmpleDress } from "react-icons/gi";
 
@@ -151,15 +151,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 <span>New Arrivals</span>
               </Link>
             </li>
-            <li>
-              <Link
-                href="/about"
-                className="flex items-center gap-3 p-3 rounded-md hover:bg-gray-700"
-              >
-                <FiPhone />
-                <span>About Us</span>
-              </Link>
-            </li>
+            
             <li>
               <Link
                 href="/contact"
@@ -167,6 +159,15 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               >
                 <FiPhone />
                 <span>Contact Us</span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/about"
+                className="flex items-center gap-3 p-3 rounded-md hover:bg-gray-700"
+              >
+                <FaInfoCircle />
+                <span>About Us</span>
               </Link>
             </li>
           </ul>
