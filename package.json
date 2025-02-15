@@ -12,11 +12,13 @@
   },
   "dependencies": {
     "flatpickr": "^4.6.13",
+    "framer-motion": "^12.4.3",
     "gh-pages": "^6.3.0",
     "jsvectormap": "^1.6.0",
     "next": "^15.1.7",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.4.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
