@@ -5,10 +5,10 @@ import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 const HomeFooter = () => {
   return (
-    <div className="bg-dark text-dark py-10 mt-16 lg:ml-10">
+    <div className="bg-dark text-dark py-10 mt-16 ml-6">
       <div className="container mx-auto px-6">
         {/* Footer top */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-16 mb-5">
           {/* Sneha Rental House Branding */}
           <div>
             <h2 className="text-2xl font-bold mb-4">Sneha Rental House</h2>
