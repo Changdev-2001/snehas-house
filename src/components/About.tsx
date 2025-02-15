@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import HomeFooter from "./Dashboard/HomeFooter";
 
 const AboutUs = () => {
   return (
@@ -101,6 +102,7 @@ const AboutUs = () => {
           </Link>
         </div>
       </div>
+      <HomeFooter/>
     </div>
   );
 };

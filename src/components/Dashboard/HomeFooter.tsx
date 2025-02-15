@@ -6,7 +6,7 @@ import { FaSquareFacebook } from "react-icons/fa6";
 
 const HomeFooter = () => {
   return (
-    <div className="bg-dark text-dark py-10 mt-16 ml-6">
+    <div className="bg-dark text-dark mt-10 ml-6">
       <div className="container mx-auto px-6">
         {/* Footer top */}
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-16 mb-5">
