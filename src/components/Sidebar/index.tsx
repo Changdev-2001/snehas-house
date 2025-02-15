@@ -46,15 +46,18 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         </div>
 
         {/* Menu Items */}
-        <nav className="flex-1 overflow-y-auto px-4">
+        <nav className="flex-1 overflow-y-auto px-4 scrollbar-hide">
           {/* Gown Category with Dropdown */}
           <h3 className="mt-6 px-4 text-sm font-semibold uppercase text-gray-400">
             Menu
           </h3>
-              <Link href="/" className="flex items-center space-x-3 py-2 px-4 hover:bg-gray-700 rounded">
-                <FiHome />
-                <span>Home</span>
-              </Link>
+          <Link
+            href="/"
+            className="flex items-center space-x-3 py-2 px-4 hover:bg-gray-700 rounded"
+          >
+            <FiHome />
+            <span>Home</span>
+          </Link>
           <h3 className="mt-6 px-4 text-sm font-semibold uppercase text-gray-400">
             Categories
           </h3>
@@ -64,12 +67,17 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               <button
                 onClick={() => setIsGownDropdownOpen(!isGownDropdownOpen)}
                 className="flex items-center justify-between w-full p-3 rounded-md hover:bg-gray-700"
-              >{/* Home */}
+              >
+                {/* Home */}
                 <div className="flex items-center gap-3">
-                <GiAmpleDress />
+                  <GiAmpleDress />
                   <span>Gowns</span>
                 </div>
-                <FaChevronDown className={`transition-transform ${isGownDropdownOpen ? "rotate-180" : ""}`} />
+                <FaChevronDown
+                  className={`transition-transform ${
+                    isGownDropdownOpen ? "rotate-180" : ""
+                  }`}
+                />
               </button>
             </li>
 
