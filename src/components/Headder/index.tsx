@@ -1,14 +1,70 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import DarkModeSwitcher from "./DarkModeSwitcher";
+import Image from "next/image";
 // import DropdownMessage from "./DropdownMessage";
 // import DropdownNotification from "./DropdownNotification";
 // import DropdownUser from "./DropdownUser";
-// import Image from "next/image";
+
+const gownCategories = [
+  { name: "Ball Gown", path: "/categories/ball-gown" },
+  { name: "Tail Gown", path: "/categories/tail-gown" },
+  { name: "Maternity Gown", path: "/categories/maternity-gown" },
+  { name: "Party Gown", path: "/categories/party-gown" },
+  { name: "Engagement Gown", path: "/categories/engagement-gown" },
+  { name: "Gallary", path: "/gallary" },
+  { name: "New Arrivals", path: "/new-arrivals" },
+  { name: "About Us", path: "/about" },
+];
+
+const basePath = "/snehas-house"; // Must match basePath in next.config.js
 
 const Header = (props: {
   sidebarOpen: string | boolean | undefined;
   setSidebarOpen: (arg0: boolean) => void;
 }) => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [suggestions, setSuggestions] = useState<{ name: string; path: string }[]>([]);
+  const router = useRouter();
+
+  // Handle search input change
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+
+    if (value.trim() === "") {
+      setSuggestions([]);
+    } else {
+      // Filter categories based on input
+      const filtered = gownCategories.filter((gown) =>
+        gown.name.toLowerCase().includes(value.toLowerCase())
+      );
+      setSuggestions(filtered);
+    }
+  };
+
+  // Handle search submit
+  const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const matchedGown = gownCategories.find((gown) =>
+      gown.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    if (matchedGown) {
+      router.push(matchedGown.path); // Redirect to the matched category
+    }
+  };
+
+  // Handle clicking a suggestion
+  const handleSuggestionClick = (path: string) => {
+    setSearchTerm(""); // Clear input
+    setSuggestions([]); // Hide suggestions
+    router.push(path); // Redirect to the selected category
+  };
+
   return (
     <header className="sticky top-0 z-999 flex w-full bg-white drop-shadow-1 dark:bg-boxdark dark:drop-shadow-none">
       <div className="flex flex-grow items-center justify-between px-4 py-4 shadow-2 md:px-6 2xl:px-11">
@@ -56,15 +112,23 @@ const Header = (props: {
           </button>
           {/* <!-- Hamburger Toggle BTN --> */}
 
-          <Link className="block flex-shrink-0 lg:hidden" href="/">
-            Sneha`s House
+           {/* Logo inside Link */}
+           <Link className="block flex-shrink-0 lg:hidden" href="/">
+            <Image
+              src={`${basePath}/logo.png`} // Replace with your actual logo path inside public folder
+              alt="Logo"
+              width={50} // Adjust width as needed
+              height={50} // Adjust height as needed
+              priority // Ensures logo loads fast
+            />
           </Link>
         </div>
 
-        <div className="hidden sm:block">
-          <form action="https://formbold.com/s/unique_form_id" method="POST">
+         {/* Search Bar with Suggestions */}
+         <div className="relative w-full sm:w-auto ml-10">
+          <form onSubmit={handleSearchSubmit}>
             <div className="relative">
-              <button className="absolute left-0 top-1/2 -translate-y-1/2">
+            <button className="absolute left-0 top-1/2 -translate-y-1/2">
                 <svg
                   className="fill-body hover:fill-primary dark:fill-bodydark dark:hover:fill-primary"
                   width="20"
@@ -90,12 +154,30 @@ const Header = (props: {
 
               <input
                 type="text"
-                placeholder="Type to search..."
+                placeholder="Search gowns..."
                 className="w-full bg-transparent pl-9 pr-4 font-medium focus:outline-none xl:w-125"
+                value={searchTerm}
+                onChange={handleSearchChange}
               />
             </div>
           </form>
+
+          {/* Suggestion Box */}
+          {suggestions.length > 0 && (
+            <ul className="absolute left-0 mt-1 w-full bg-pink-100 border border-dark rounded-md shadow-lg">
+              {suggestions.map((gown) => (
+                <li
+                  key={gown.path}
+                  className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                  onClick={() => handleSuggestionClick(gown.path)}
+                >
+                  {gown.name}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
+
 
         <div className="flex items-center gap-3 2xsm:gap-7">
           <ul className="flex items-center gap-2 2xsm:gap-4">
