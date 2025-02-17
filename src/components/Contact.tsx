@@ -8,34 +8,65 @@ import HomeFooter from "./Dashboard/HomeFooter";
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
+    mobile: "",
     message: "",
   });
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    // Ensure only numbers are entered in mobile field
+    if (e.target.name === "mobile") {
+      const value = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+      if (value.length <= 10) {
+        setFormData({ ...formData, [e.target.name]: value });
+      }
+    } else {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Message Sent! We will contact you soon.");
-    setFormData({ name: "", email: "", message: "" });
+
+    const { name, mobile, message } = formData;
+
+    // Validate mobile number
+    if (!/^\d{10}$/.test(mobile)) {
+      alert("Please enter a valid 10-digit mobile number.");
+      return;
+    }
+
+    if (!name || !mobile || !message) {
+      alert("Please fill out all fields.");
+      return;
+    }
+
+    // Encode message for URL
+    // Format message with line breaks
+    const text = `Hello, my name is ${name},\nMy contact number is ${mobile},\nMessage: ${message}`;
+    const encodedText = encodeURIComponent(text);
+
+    // WhatsApp number (change this to your business number)
+    const whatsappNumber = "+919011421508";
+
+    // WhatsApp URL
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
+
+    // Open WhatsApp in a new tab
+    window.open(whatsappURL, "_blank");
+
+    // Reset Form
+    setFormData({ name: "", mobile: "", message: "" });
   };
 
   return (
     <div className="max-w-4xl mx-auto p-6">
-      {/* Page Title */}
       <h1 className="text-3xl font-bold text-center text-pink-600 mb-6">
         Contact Sneha`s Rental House
       </h1>
 
-      {/* Contact Info Section */}
       <div className="grid md:grid-cols-2 gap-8 ">
-        
-
-        {/* Contact Form */}
         <div className="bg-dark p-6 rounded-lg shadow-lg">
           <h2 className="text-xl font-semibold mb-4">Send Us a Message</h2>
           <form onSubmit={handleSubmit} className="space-y-4 bg-dark">
@@ -46,16 +77,18 @@ const Contact = () => {
               onChange={handleChange}
               placeholder="Your Name"
               required
-              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-600"
+              className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-600"
             />
             <input
-              type="email"
-              name="email"
-              value={formData.email}
+              type="tel"
+              name="mobile"
+              value={formData.mobile}
               onChange={handleChange}
-              placeholder="Your Email"
+              placeholder="Your Mobile"
               required
-              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-600"
+              maxLength={10}
+              pattern="[0-9]{10}"
+              className="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-600"
             />
             <textarea
               name="message"
@@ -63,27 +96,27 @@ const Contact = () => {
               onChange={handleChange}
               placeholder="Your Message"
               required
-              rows={4}
+              rows={2}
               className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-pink-600"
             ></textarea>
             <button
               type="submit"
               className="w-full bg-pink-600 text-white py-3 rounded-md hover:bg-pink-700 transition"
             >
-              Send Message
+              Send Message via WhatsApp
             </button>
           </form>
         </div>
-        {/* Contact Details */}
-        <div className="space-y-4">
+
+        <div className="space-y-4 md:mt-28 md:ml-10">
           <div className="flex items-center space-x-3">
             <FaMapMarkerAlt className="text-pink-600 text-xl" />
-            <p className="text-lg">Rohidas Chouk, Shrigonda,Shrigonda, Ahilyanagar</p>
+            <p className="text-lg">Rohidas Chouk, Shrigonda, Ahilyanagar</p>
           </div>
           <div className="flex items-center space-x-3">
             <FaPhone className="text-pink-600 text-xl" />
             <p className="text-lg">
-              <Link href="tel:+1234567890" className="hover:underline">
+              <Link href="https://wa.me/9011421508" className="hover:underline">
                 +91 9011421508
               </Link>
             </p>
@@ -92,7 +125,7 @@ const Contact = () => {
             <FaEnvelope className="text-pink-600 text-xl" />
             <p className="text-lg">
               <Link
-                href="mailto:snehaagawane08489@gmail.com"
+                href="https://mailto:snehaagawane08489@gmail.com"
                 className="hover:underline"
               >
                 snehaagawane08489@gmail.com
@@ -102,8 +135,6 @@ const Contact = () => {
         </div>
       </div>
 
-
-      {/* Google Maps Embed */}
       <div className="mt-8">
         <h2 className="text-xl font-semibold mb-4 text-center">
           Find Us on the Map
@@ -115,8 +146,9 @@ const Contact = () => {
           loading="lazy"
         ></iframe>
       </div>
-      <HomeFooter/>
+      <HomeFooter />
     </div>
   );
 };
+
 export default Contact;
