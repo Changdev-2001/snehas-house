@@ -59,19 +59,19 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             <span>Home</span>
           </Link>
           <h3 className="mt-6 px-4 text-sm font-semibold uppercase text-gray-400">
-            Categories
+            Gowns
           </h3>
           <ul className="mt-2 space-y-2">
             {/* Dropdown Trigger */}
             <li>
               <button
                 onClick={() => setIsGownDropdownOpen(!isGownDropdownOpen)}
-                className="flex items-center justify-between w-full p-3 rounded-md hover:bg-gray-700"
+                className="flex items-center justify-between w-full p-1 rounded-md hover:bg-gray-700"
               >
                 {/* Home */}
                 <div className="flex items-center gap-3">
                   <GiAmpleDress />
-                  <span>Gowns</span>
+                  <span>Categories</span>
                 </div>
                 <FaChevronDown
                   className={`transition-transform ${
@@ -87,7 +87,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 <li>
                   <Link
                     href="/categories/tail-gown"
-                    className="flex items-center gap-3 p-3 rounded-md hover:bg-gray-700"
+                    className="flex items-center gap-3 p-1 rounded-md hover:bg-gray-700"
                   >
                     <span>Tail Gown</span>
                   </Link>
@@ -95,7 +95,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 <li>
                   <Link
                     href="/categories/ball-gown"
-                    className="flex items-center gap-3 p-3 rounded-md hover:bg-gray-700"
+                    className="flex items-center gap-3 p-1 rounded-md hover:bg-gray-700"
                   >
                     <span>Ball Gown</span>
                   </Link>
@@ -103,7 +103,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 <li>
                   <Link
                     href="/categories/maternity-gown"
-                    className="flex items-center gap-3 p-3 rounded-md hover:bg-gray-700"
+                    className="flex items-center gap-3 p-1 rounded-md hover:bg-gray-700"
                   >
                     <span>Maternity Gown</span>
                   </Link>
@@ -111,7 +111,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 <li>
                   <Link
                     href="/categories/party-gown"
-                    className="flex items-center gap-3 p-3 rounded-md hover:bg-gray-700"
+                    className="flex items-center gap-3 p-1 rounded-md hover:bg-gray-700"
                   >
                     <span>Party Gown</span>
                   </Link>
@@ -119,7 +119,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 <li>
                   <Link
                     href="/categories/engagement-gown"
-                    className="flex items-center gap-3 p-3 rounded-md hover:bg-gray-700"
+                    className="flex items-center gap-3 p-1 rounded-md hover:bg-gray-700"
                   >
                     <span>Engagement Gown</span>
                   </Link>
@@ -135,27 +135,27 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
           <ul className="mt-2 space-y-2">
             <li>
               <Link
-                href="/gallary"
-                className="flex items-center gap-3 p-3 rounded-md hover:bg-gray-700"
-              >
-                <FaImages />
-                <span>Gallery</span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/gallary"
-                className="flex items-center gap-3 p-3 rounded-md hover:bg-gray-700"
+                href="/new-arrivals"
+                className="flex items-center gap-3 p-1 rounded-md hover:bg-gray-700"
               >
                 <FiShoppingBag />
                 <span>New Arrivals</span>
               </Link>
             </li>
-            
+            <li>
+              <Link
+                href="/gallary"
+                className="flex items-center gap-3 p-1 rounded-md hover:bg-gray-700"
+              >
+                <FaImages />
+                <span>Gallery</span>
+              </Link>
+            </li>
+
             <li>
               <Link
                 href="/contact"
-                className="flex items-center gap-3 p-3 rounded-md hover:bg-gray-700"
+                className="flex items-center gap-3 p-1 rounded-md hover:bg-gray-700"
               >
                 <FiPhone />
                 <span>Contact Us</span>
@@ -164,7 +164,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             <li>
               <Link
                 href="/about"
-                className="flex items-center gap-3 p-3 rounded-md hover:bg-gray-700"
+                className="flex items-center gap-3 p-1 rounded-md hover:bg-gray-700"
               >
                 <FaInfoCircle />
                 <span>About Us</span>
