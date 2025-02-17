@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Heart, MessageCircle, Phone } from "lucide-react";
+import HomeFooter from "../Dashboard/HomeFooter";
 
 const basePath = "/snehas-house"; // Must match basePath in next.config.js
 const gowns = [
@@ -104,6 +105,7 @@ const TailGown = () => {
           </div>
         ))}
       </div>
+      <HomeFooter/>
     </div>
   );
 };
