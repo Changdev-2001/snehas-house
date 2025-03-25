@@ -72,7 +72,7 @@ const HomeFooter = () => {
             <div className="flex space-x-4">
               <Link
                 href="/"
-                className="text-pink-600 hover:text-pink-500"
+                className="text-blue-600 hover:text-blue-500"
                 target="_blank"
               >
                 <FaSquareFacebook size={24} />
@@ -86,7 +86,7 @@ const HomeFooter = () => {
               </Link>
               <Link
                 href="https://wa.me/9011421508"
-                className="text-pink-600 hover:text-pink-500"
+                className="text-green-600 hover:text-green-500"
                 target="_blank"
               >
                 <FaWhatsappSquare size={24} />

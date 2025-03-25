@@ -48,7 +48,7 @@ const Contact = () => {
     const encodedText = encodeURIComponent(text);
 
     // WhatsApp number (change this to your business number)
-    const whatsappNumber = "+919011421508";
+    const whatsappNumber = "+919767560224";
 
     // WhatsApp URL
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
