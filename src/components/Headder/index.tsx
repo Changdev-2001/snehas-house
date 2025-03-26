@@ -183,20 +183,12 @@ const Header = (props: {
           <ul className="flex items-center gap-2 2xsm:gap-4">
             {/* <!-- Dark Mode Toggler --> */}
             <DarkModeSwitcher />
-            {/* <!-- Dark Mode Toggler --> */}
+           
 
-            {/* <!-- Notification Menu Area --> */}
-            {/* <DropdownNotification /> */}
-            {/* <!-- Notification Menu Area --> */}
+            {/* <!-- Login Button --> */}
+            <button className="bg-stroke hover:bg-indigo-600 hover:text-white active:bg-indigo-900 text-body  rounded-xl w-14 p-0.5" onClick={() => router.push("/login")}>Login</button>
 
-            {/* <!-- Chat Notification Area --> */}
-            {/* <DropdownMessage /> */}
-            {/* <!-- Chat Notification Area --> */}
           </ul>
-
-          {/* <!-- User Area --> */}
-          {/* <DropdownUser /> */}
-          {/* <!-- User Area --> */}
         </div>
       </div>
     </header>
